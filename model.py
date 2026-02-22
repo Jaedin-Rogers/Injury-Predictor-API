@@ -16,6 +16,6 @@ def predict_injury(training_hours, recovery_days, fatigue_score):
     else:
         risk = 'Mid'
     return {
-    "probability": float(prob),
+    "probability": float(probability),
     "risk": risk
 }
