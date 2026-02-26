@@ -16,7 +16,7 @@ if st.button("Predict"):
             "fatigue_score":fatigue_score
         }
     )
-     result = res.json()
+    result = res.json()
 
         prediction = result["prediction"]
         prob = result.get("probability", 0)
