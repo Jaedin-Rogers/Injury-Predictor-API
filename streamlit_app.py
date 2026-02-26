@@ -17,21 +17,20 @@ if st.button("Predict"):
         }
     )
     result = res.json()
+    prediction = result["prediction"]
+    prob = result.get("probability", 0)
 
-        prediction = result["prediction"]
-        prob = result.get("probability", 0)
+    st.subheader("Result")
 
-        st.subheader("Result")
+    if prediction == 1:
+        st.error(f"⚠️ High Injury Risk ({prob:.0%})")
+    else:
+        st.success(f"✅ Low Injury Risk ({prob:.0%})")
 
-        if prediction == 1:
-            st.error(f"⚠️ High Injury Risk ({prob:.0%})")
-        else:
-            st.success(f"✅ Low Injury Risk ({prob:.0%})")
+    st.progress(prob)
 
-        st.progress(prob)
+    if fatigue_score > 7:
+        st.warning("High fatigue detected")
 
-        if fatigue_score > 7:
-            st.warning("High fatigue detected")
-
-        if recovery_days < 2:
-            st.warning("Low recovery time detected")
+    if recovery_days < 2:
+        st.warning("Low recovery time detected")
