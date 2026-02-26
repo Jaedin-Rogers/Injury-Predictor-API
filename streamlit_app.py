@@ -17,7 +17,8 @@ if st.button("Predict"):
         }
     )
     result = res.json()
-    prediction = result["prediction"]
+    probability = result["probability"]
+    risk = result["risk"]
     prob = result.get("probability", 0)
 
     st.subheader("Result")
