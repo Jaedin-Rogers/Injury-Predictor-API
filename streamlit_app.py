@@ -16,9 +16,6 @@ if st.button("Predict"):
             "fatigue_score":fatigue_score
         }
     )
-<<<<<<< HEAD
-    st.write(res.json())
-=======
      result = res.json()
 
         prediction = result["prediction"]
@@ -38,4 +35,3 @@ if st.button("Predict"):
 
         if recovery_days < 2:
             st.warning("Low recovery time detected")
->>>>>>> 16f4729 (Updated UI)
